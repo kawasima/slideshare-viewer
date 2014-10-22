@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
   "name": "Slideshare Viewer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "content_scripts": [
     {
       "matches": ["http://www.slideshare.net/*"],
-      "js": ["jquery-2.1.1.min.js", "slideshare.js"]
+      "js": ["javascript/jquery-2.1.1.min.js", "javascript/slideshare.js"]
     }
   ],
   "permissions": [
