@@ -1,11 +1,12 @@
 {
   "manifest_version": 2,
   "name": "Slideshare Viewer",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "",
   "content_scripts": [
     {
-      "matches": ["http://www.slideshare.net/*"],
+      "matches": ["*://www.slideshare.net/*",
+                  "*://speakerdeck.com/*"],
       "js": ["javascript/jquery-2.1.1.min.js", "javascript/slideshare.js"]
     }
   ],

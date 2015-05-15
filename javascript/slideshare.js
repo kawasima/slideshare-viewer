@@ -1,12 +1,14 @@
-var url = "http://sssslide.com/" + location.href.substr("http://".length);
+console.log("start!!!!");
+var protocol = location.href.match("^(http|https)://");
+var url = "http://sssslide.com/" + location.href.substr(protocol[0].length);
 
 $.get(url, function(data) {
-  var metadata = $(data).find("#area_body-main .mod_slides > div:eq(0)");
-  chrome.storage.sync.set({
-    lastPageNo: parseInt(metadata.attr("data-last-image-index")),
-    baseUrl: metadata.attr("data-fallback-image-url").replace(/\[N\]\-1024/, "[N]-638")
+  var metadata = $(data).filter("#js__slide");
+
+  chrome.storage.local.set({
+    total: parseInt(metadata.attr("data-total-slides")),
+    baseUrl: metadata.attr("data-image-url-template")
   }, function() {
-    var url = chrome.extension.getURL("/slide.html");
-    location.href=url;
+    location.href = chrome.extension.getURL("/slide.html");
   });
 });
