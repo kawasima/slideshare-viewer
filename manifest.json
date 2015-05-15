@@ -1,18 +1,18 @@
 {
+  "background": {
+    "scripts": ["javascript/jquery-2.1.1.min.js", "javascript/background.js"],
+    "persistent": false
+  },
   "manifest_version": 2,
   "name": "Slideshare Viewer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
-  "content_scripts": [
-    {
-      "matches": ["*://www.slideshare.net/*",
-                  "*://speakerdeck.com/*"],
-      "js": ["javascript/jquery-2.1.1.min.js", "javascript/slideshare.js"]
-    }
-  ],
   "permissions": [
+    "declarativeWebRequest",
     "storage",
-    "http://sssslide.com/*"
+    "http://sssslide.com/*",
+    "*://www.slideshare.net/*",
+    "*://speakerdeck.com/*"
   ],
   "web_accessible_resources": [
     "slide.html"
