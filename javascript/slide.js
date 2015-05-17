@@ -21,6 +21,8 @@ $(function() {
                 pn = pn - 1;
                 $("#loading").removeClass("disabled").addClass("active");          
                 slideImage.attr("src", buildUrl(s.baseUrl, pn));
+                $("#slide-progress").progress({percent: pn/s.total});
+                $("#slide-position").text(pn + "/" + s.total);
             }
         };
 
@@ -30,6 +32,8 @@ $(function() {
                 $("#loading").removeClass("disabled").addClass("active");          
                 slideImage.attr("src", buildUrl(s.baseUrl, pn));
                 if (pn < s.total) preload(s.baseUrl, pn + 1);
+                $("#slide-progress").progress({percent: pn/s.total});
+                $("#slide-position").text(pn + "/" + s.total);
             }
         };
         slideImage
@@ -37,9 +41,14 @@ $(function() {
             .on("load", function(e) { $("#loading").removeClass("active").addClass("disabled")});
 
         if (pn < s.total) preload(s.baseUrl, pn + 1);
-
+        $("#slide-progress").progress({percent: 0});
+        $("#slide-position").text(pn + "/" + s.total);
+        $("#slide-title").text(s.title);
         $("#prev").on("click", prevPage);
         $("#next").on("click", nextPage);
+        $("#btn-fullscreen").on("click", function(e) {
+            document.getElementById("slide-content").webkitRequestFullScreen();
+        });
         $(document).on("keydown", function(e) {
             switch(e.which) {
             case 37:

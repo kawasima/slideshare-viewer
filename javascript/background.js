@@ -40,7 +40,8 @@ chrome.declarativeWebRequest.onMessage.addListener(function(response) {
         chrome.storage.local.set({
             total: parseInt(metadata.attr("data-total-slides")),
             type: response.message,
-            baseUrl: metadata.attr("data-image-url-template")
+            baseUrl: metadata.attr("data-image-url-template"),
+            title: $(data).filter("meta[property='og:title']").attr("content")
         }, function() {
             chrome.tabs.update(response.tabId, {url: chrome.extension.getURL("/slide.html")});
         });
