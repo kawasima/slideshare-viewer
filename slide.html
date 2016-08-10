@@ -12,6 +12,9 @@
       .container {
       width: 850px;
       }
+      #slide-content {
+      margin-bottom: 1rem;
+      }
       :-webkit-full-screen {
       width: 100%;
       height: 100%;
@@ -37,8 +40,10 @@
         </div>
         <div class="ui grid">
           <div class="left floated five wide column">
-            <div class="ui mini statistic">
-              <div id="slide-position" class="value">0/0</div>
+            <div id="slide-position" class="ui mini statistic">
+              <span class="current value">0</span>
+              <span>/</span>
+              <span class="total value">0</span>
             </div>
           </div>
           <div class="center floated center aligned six wide column">
