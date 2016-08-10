@@ -58,7 +58,7 @@ $(function() {
                 .attr('src', buildUrl(data.baseUrl, 1))
                 .on('load', (e) => $('#loading').removeClass('active').addClass('disabled'))
                 .on('mousemove', (e) => {
-                    this.node.css('cursor', inL(e.pageX) ? 'w-resize' : inR(e.pageX) ? 'e-resize' : 'auto');
+                    this.node.css('cursor', inL(e.pageX) ? 'url(img/back.png) 0 0, w-resize' : inR(e.pageX) ? 'url(img/forward.png) 0 0, e-resize' : 'auto');
                 })
                 .on('click', (e) => {
                     if (inL(e.pageX)) {
