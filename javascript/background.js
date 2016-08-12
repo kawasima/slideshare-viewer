@@ -2,7 +2,7 @@ var loading = false;
 var pluginActive = false;
 
 function dispatch(site, url, tabId) {
-    if (pluginActive) return false;
+    if (!pluginActive) return false;
     if (loading) return false;
     loading = true;
     var protocol = url.match("^(http|https)://");
