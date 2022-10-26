@@ -1,20 +1,16 @@
 {
-  "background": {
-    "scripts": ["javascript/jquery-2.1.1.min.js", "javascript/background.js"],
-    "persistent": true
-  },
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Slideshare Viewer",
-  "version": "0.5.0",
-  "description": "",
-  "permissions": [
-    "webRequest",
-    "storage",
-    "http://sssslide.com/*",
-    "*://www.slideshare.net/*",
-    "*://speakerdeck.com/*"
-  ],
-  "web_accessible_resources": [
-    "slide.html"
-  ]
+  "version": "1.0.0",
+  "description": "Make slideshare comfortable again",
+  "content_scripts": [{
+    "matches": ["https://www.slideshare.net/*", "https://slideshare.net/*"],
+    "run_at": "document_end",
+    "all_frames": true,
+    "js": ["inject.js"]
+  }],
+  "web_accessible_resources": [{
+    "resources": ["content.js"],
+    "matches": ["https://www.slideshare.net/*", "https://slideshare.net/*"]
+  }]
 }
