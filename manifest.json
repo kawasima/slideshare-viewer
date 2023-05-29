@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Slideshare Viewer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Make slideshare comfortable again",
   "content_scripts": [{
     "matches": ["https://www.slideshare.net/*", "https://slideshare.net/*"],
